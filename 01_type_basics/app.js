@@ -1,6 +1,6 @@
 "use strict";
 // string
-var myName = "max";
+var myName = "steve";
 // myName = 20;	<-- can't do this, because TS picks up the type.
 // number
 var myAge = 32;
@@ -34,3 +34,13 @@ var Colour;
 })(Colour || (Colour = {}));
 var myColour = Colour.green;
 console.log(myColour);
+// any
+var car = "BMW"; // lets you use dynamic typing -> use sparingly
+console.log(car);
+car = { make: "Mercedes", age: 4 };
+console.log(car);
+// functions
+function returnMyName() {
+    return myName;
+}
+console.log(returnMyName());

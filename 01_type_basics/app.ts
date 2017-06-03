@@ -1,5 +1,5 @@
 // string
-let myName = "max";
+let myName = "steve";
 // myName = 20;	<-- can't do this, because TS picks up the type.
 
 // number
@@ -46,3 +46,32 @@ enum Colour {
 
 let myColour : Colour = Colour.green;
 console.log(myColour);
+
+
+// any
+let car : any = "BMW";	// lets you use dynamic typing -> use sparingly
+console.log(car);
+car = {make : "Mercedes", age: 4};
+console.log(car);
+
+
+
+
+// functions
+function returnMyName()  : string {		// returns a string
+	return myName;
+}
+
+console.log(returnMyName());
+
+
+// void 
+function sayHello() : void {
+	console.log("hello!");
+	// return 0;	<-- can't return something from void function
+}
+
+// args
+function myFunc(myInt :number, myStr: string) {
+	console.log(myInt, myStr);
+}
