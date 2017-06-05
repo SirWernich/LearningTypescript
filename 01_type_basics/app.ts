@@ -1,5 +1,5 @@
 // string
-let myName = "steve";
+let myName = "max";
 // myName = 20;	<-- can't do this, because TS picks up the type.
 
 // number
@@ -39,39 +39,85 @@ address = ["townsville", 234];	// all good
 // enums
 
 enum Colour {
-	red,
-	green,
-	blue
+	red,	// 0
+	green,	// 1
+	blue,	// 2
+	pink = 120,	// 120
+	yellow	//121	<-- continues from last value
 }
 
 let myColour : Colour = Colour.green;
 console.log(myColour);
 
-
-// any
-let car : any = "BMW";	// lets you use dynamic typing -> use sparingly
-console.log(car);
-car = {make : "Mercedes", age: 4};
-console.log(car);
-
-
-
-
 // functions
-function returnMyName()  : string {		// returns a string
+
+function returnMyName(): string {
 	return myName;
 }
+console.log(returnMyName);
 
-console.log(returnMyName());
+// void
 
-
-// void 
 function sayHello() : void {
-	console.log("hello!");
-	// return 0;	<-- can't return something from void function
+	console.log("Hello!");
 }
 
-// args
-function myFunc(myInt :number, myStr: string) {
-	console.log(myInt, myStr);
+// argument types
+
+function multiply(val1 : number, val2 : number ) : number {
+	return val1 * val2;
 }
+
+// console.log(multiply(10, "bob"));	<-- doesn't work, wrong type
+console.log(multiply(10, 8));
+
+// function types
+
+let myMultiply;	// type any
+myMultiply = sayHello;
+myMultiply();
+myMultiply = multiply;
+myMultiply(12,12);
+
+// type-ing your functions so you can't assign functions to variables that have
+// different number of parameters and return different types.
+
+// type of "myTypedMultiply" is a function that takes two params of type number
+// and reteurns a number
+let myTypedMultiply: (v1: number, v2: number) => number;
+
+// myTypedMultiply = sayHello;	<-- doesn't work
+myTypedMultiply = myMultiply;
+
+
+// objects
+
+let userData = {
+	name: "bob",
+	age: 23
+};
+
+/*
+userData = {
+	car: "merc",	<-- doesn't work. type object(string, int) and property names
+	milage: 324	    are important
+};
+*/
+userData = {
+	age: 23,	// order doesn't matter
+	name: "steve"
+};
+
+// defining the object's types
+let anotherUser : {name: string, age: number} = {
+	name : "alan",
+	age: 87
+};
+
+
+let complex: {data: number[], output: (all: boolean) => number[]} = {
+	data: [1,2,3,4],
+	output: function(all: boolean): number[] {
+		return this.data;
+	}
+};
