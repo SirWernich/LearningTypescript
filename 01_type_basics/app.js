@@ -84,9 +84,41 @@ var anotherUser = {
     name: "alan",
     age: 87
 };
+// complex object
 var complex = {
     data: [1, 2, 3, 4],
     output: function (all) {
         return this.data;
     }
 };
+// instead of duplicating like this:
+var complex2 = {
+    data: [10, 11, 12, 13],
+    output: function (all) {
+        return this.data;
+    }
+};
+var complex3 = {
+    data: [10, 11, 12, 13],
+    output: function (all) {
+        return this.data;
+    }
+};
+// union types
+var myRealRealAge = 27; // instead of "any" (can chain more than two)
+myRealRealAge = "27";
+// myRealRealAge = true;	<-- doesn't work
+// check types
+var finalValue = "a string";
+if (typeof finalValue == "string")
+    console.log("it's a string");
+// never type
+// this function never completes, it throws an error.
+function neverReturns() {
+    throw new Error("an error!");
+}
+// nullable types
+var canBeNull = 12;
+canBeNull = null;
+var canAlsoBeNull; // undefined
+canAlsoBeNull = null;

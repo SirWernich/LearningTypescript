@@ -114,6 +114,7 @@ let anotherUser : {name: string, age: number} = {
 	age: 87
 };
 
+// complex object
 
 let complex: {data: number[], output: (all: boolean) => number[]} = {
 	data: [1,2,3,4],
@@ -121,3 +122,94 @@ let complex: {data: number[], output: (all: boolean) => number[]} = {
 		return this.data;
 	}
 };
+
+// instead of duplicating like this:
+
+let complex2: {data: number[], output: (all: boolean) => number[]} = {
+	data: [10,11,12,13],
+	output: function(all: boolean): number[] {
+		return this.data;
+	}
+};
+
+// we use type aliasing
+// type alias:
+type Complex = {data: number[], output: (all: boolean) => number[]};
+
+let complex3: Complex = {	// of type "Complex"
+	data: [10,11,12,13],
+	output: function(all: boolean): number[] {
+		return this.data;
+	}
+};
+
+// union types
+
+let myRealRealAge : number | string = 27;	// instead of "any" (can chain more than two)
+myRealRealAge = "27";
+// myRealRealAge = true;	<-- doesn't work
+
+// check types
+
+let finalValue = "a string";
+
+if (typeof finalValue == "string")
+	console.log("it's a string");
+
+
+// never type
+// this function never completes, it throws an error.
+function neverReturns(): never {
+	throw new Error("an error!");
+}
+
+// nullable types
+
+let canBeNull = 12;
+//canBeNull = null;	// can't do this
+let canAlsoBeNull;	// undefined
+
+canAlsoBeNull = null;
+
+// enable "strictNullChecks" in the tsconfig file
+// stops you from assigning null to values that shouldn't be null
+// if you still want to use nullable:
+
+let canBeNullValue: number | null = 12;
+canBeNullValue = null;
+
+let nullType = null;	// type "null", not "any"
+
+
+
+
+
+/*******************************************/
+
+// exercise:
+
+let bankAccount: {money: number, deposit: (value: number) => number} = {
+	money: 2000,
+	deposit(value) {
+		this.money += value;
+	}
+};
+
+let myself = {
+	name: "bob",
+	bankAccount: bankAccount,
+	hobbies: ["food", "sport"]
+}
+
+let myself.bankAccount.deposit(3000);
+
+console.log(myself)
+
+
+
+
+
+
+
+
+
