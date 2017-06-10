@@ -119,6 +119,25 @@ function neverReturns() {
 }
 // nullable types
 var canBeNull = 12;
-canBeNull = null;
+//canBeNull = null;	// can't do this
 var canAlsoBeNull; // undefined
 canAlsoBeNull = null;
+// enable "strictNullChecks" in the tsconfig file
+// stops you from assigning null to values that shouldn't be null
+// if you still want to use nullable:
+var canBeNullValue = 12;
+canBeNullValue = null;
+var nullType = null; // type "null", not "any"
+var bankAccount = {
+    money: 2000,
+    deposit: function (value) {
+        this.money += value;
+    }
+};
+var myself = {
+    name: "bob",
+    bankAccount: bankAccount,
+    hobbies: ["food", "sport"]
+};
+myself.bankAccount.deposit(3000);
+console.log(myself);
