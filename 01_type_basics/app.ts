@@ -188,20 +188,22 @@ let nullType = null;	// type "null", not "any"
 
 // exercise:
 
-let bankAccount: {money: number, deposit: (value: number) => number} = {
+type BankAccount = { money: number, deposit: (value: number) => void }
+
+let bankAccount: BankAccount = {
 	money: 2000,
-	deposit(value) {
+	deposit(value: number): void {
 		this.money += value;
 	}
 };
 
-let myself = {
+let myself: {name: string, bankAccount: BankAccount, hobbies: string[]} = {
 	name: "bob",
 	bankAccount: bankAccount,
 	hobbies: ["food", "sport"]
 }
 
-let myself.bankAccount.deposit(3000);
+myself.bankAccount.deposit(3000);
 
 console.log(myself)
 
