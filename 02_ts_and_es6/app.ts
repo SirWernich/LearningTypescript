@@ -38,7 +38,7 @@ const greet = () => console.log("hello!");
 greet();
 
 // it's better to specify the type
-const greetFriend = friend => console.log("hello " + friend);
+const greetFriend = (friend: string) => console.log("hello " + friend);
 greetFriend("bob");
 
 
@@ -83,23 +83,55 @@ console.log(hobby1);
 console.log(hobby2);
 console.log(hobby3);
 
+// destructuring objects
+
+const userDataObj = {username: "bob", age: 34};
+const {username: myNameVar, age} = userDataObj;
+
+console.log(myNameVar, age);
+
+
+// template literals
+
+const literalUsername = "bob";
+const literalGreeting = `
+this is a heading!
+I'm ${literalUsername}, pleased
+to meet you!
+`
 
 
 
+// exercises:
+// 1:
 
+var double_ans = (value : number) => value * 2;
 
+// 2: 
 
+var greet_ans = function(name: string = "you") {
+	console.log(`Hello ${name}`);
+};
 
+// 3:
+//?
+var ex_numbers: number[] = [-3, 33, 38, 5];
+console.log("min: " + Math.min(...ex_numbers));
 
+// 4:
+//?
+var newArray = [55, 20];
+newArray.push(...ex_numbers);
+console.log(newArray);
 
+// 5:
 
+var testResult = [3.89, 2.99, 1.38];
+var [testResult1, testResult2, testResult3] = testResult;
+console.log(testResult1, testResult2, testResult3);
 
+// 6:
 
-
-
-
-
-
-
-
-
+var scientist = {firstname: "will", experience: 12};
+var {firstname, experience} = scientist;
+console.log(firstname, experience);
