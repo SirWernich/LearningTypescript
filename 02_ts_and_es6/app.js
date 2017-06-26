@@ -63,3 +63,36 @@ var hobby1 = myhobbies[0], hobby2 = myhobbies[1], hobby3 = myhobbies[2];
 console.log(hobby1);
 console.log(hobby2);
 console.log(hobby3);
+// destructuring objects
+var userDataObj = { username: "bob", age: 34 };
+var myNameVar = userDataObj.username, age = userDataObj.age;
+console.log(myNameVar, age);
+// template literals
+var literalUsername = "bob";
+var literalGreeting = "\nthis is a heading!\nI'm " + literalUsername + ", pleased\nto meet you!\n";
+// exercises:
+// 1:
+var double_ans = function (value) { return value * 2; };
+// 2: 
+var greet_ans = function (name) {
+    if (name === void 0) { name = "you"; }
+    console.log("Hello " + name);
+};
+// 3:
+//?
+var ex_numbers = [-3, 33, 38, 5];
+console.log("min: " + (_a = Math.min).call.apply(_a, [Math].concat(ex_numbers)));
+// 4:
+//?
+var newArray = [55, 20];
+Array.prototype.push.apply(newArray, ex_numbers);
+console.log(newArray);
+// 5:
+var testResult = [3.89, 2.99, 1.38];
+var testResult1 = testResult[0], testResult2 = testResult[1], testResult3 = testResult[2];
+console.log(testResult1, testResult2, testResult3);
+// 6:
+var scientist = { firstname: "will", experience: 12 };
+var firstname = scientist.firstname, experience = scientist.experience;
+console.log(firstname, experience);
+var _a;
