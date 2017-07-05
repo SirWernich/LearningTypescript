@@ -143,5 +143,78 @@ class OnlyOneReadonly {
 }
 
 let theOnlyRO = OnlyOneReadonly.getInstance();
-theOnlyRO.name = "blah";
+// theOnlyRO.name = "blah";	<-- can't assign to readonly variable
 console.log(theOnlyRO);
+
+
+// exercise:
+console.log(" ******** exercise ******** ");
+console.log("--- 1 ---");
+
+// 1:
+class Car {
+	public name : string;
+	public acceleration : number = 0;
+
+	constructor(name: string){
+		this.name = name;
+	}
+
+	public honk() {
+		console.log("tooooooot!");
+	}
+
+	public accelerate(speed: number) {
+		this.acceleration += speed;
+	}
+}
+
+let car = new Car("BMW");
+car.honk();
+console.log(car.acceleration);
+car.accelerate(10);
+console.log(car.acceleration);
+
+
+// 2:
+console.log("--- 2 ---");
+
+class BaseObject {
+	constructor(public width: number, public length: number) 
+	{}
+
+	calcSize() {
+		return this.width * this.length;
+	}
+}
+
+let rectangle = new BaseObject(2, 5);
+console.log(rectangle.calcSize());
+
+
+// 3:
+console.log("--- 3 ---");
+
+class APerson {
+	private _firstname: string = "";
+	enumerable: boolean = true;
+	configurable: boolean = true;
+
+	get firstname() {
+		return this._firstname;
+	}
+
+	set firstname(value: string) {
+		this._firstname = value.length > 3 ? value : "";
+	}
+}
+
+let thisPerson = new APerson();
+
+console.log(thisPerson.firstname);
+thisPerson.firstname = "bob";
+console.log(thisPerson.firstname);
+thisPerson.firstname = "bobby";
+console.log(thisPerson.firstname);
+
+
