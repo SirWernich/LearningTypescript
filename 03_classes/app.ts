@@ -179,16 +179,31 @@ console.log(car.acceleration);
 // 2:
 console.log("--- 2 ---");
 
-class BaseObject {
-	constructor(public width: number, public length: number) 
-	{}
+abstract class BaseObject {
+	public width: number;
+	public length: number;
 
-	calcSize() {
+	constructor(w: number, l: number)
+	{
+		this.width = w;
+		this.length = l;
+	}
+
+	abstract calcSize() : number;
+}
+
+class Rectangle extends BaseObject {
+	constructor(w: number, l: number)
+	{
+		super(l, w);
+	}
+
+	calcSize() : number {
 		return this.width * this.length;
 	}
 }
 
-let rectangle = new BaseObject(2, 5);
+let rectangle = new Rectangle(2, 5);
 console.log(rectangle.calcSize());
 
 

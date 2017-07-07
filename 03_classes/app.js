@@ -167,16 +167,23 @@ console.log(car.acceleration);
 // 2:
 console.log("--- 2 ---");
 var BaseObject = (function () {
-    function BaseObject(width, length) {
-        this.width = width;
-        this.length = length;
+    function BaseObject(w, l) {
+        this.width = w;
+        this.length = l;
     }
-    BaseObject.prototype.calcSize = function () {
-        return this.width * this.length;
-    };
     return BaseObject;
 }());
-var rectangle = new BaseObject(2, 5);
+var Rectangle = (function (_super) {
+    __extends(Rectangle, _super);
+    function Rectangle(w, l) {
+        return _super.call(this, l, w) || this;
+    }
+    Rectangle.prototype.calcSize = function () {
+        return this.width * this.length;
+    };
+    return Rectangle;
+}(BaseObject));
+var rectangle = new Rectangle(2, 5);
 console.log(rectangle.calcSize());
 // 3:
 console.log("--- 3 ---");
