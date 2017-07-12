@@ -1,4 +1,3 @@
-"use strict";
 // let and const
 console.log("*** let and const ***");
 var variable = 12; // global scope

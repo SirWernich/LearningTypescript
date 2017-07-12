@@ -1,4 +1,3 @@
-"use strict";
 // string
 var myName = "max";
 // myName = 20;	<-- can't do this, because TS picks up the type.
