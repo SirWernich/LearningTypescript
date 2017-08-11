@@ -76,9 +76,9 @@ var Helpers = (function () {
     Helpers.calcCircumferenc = function (diameter) {
         return this.PI * diameter;
     };
+    Helpers.PI = 3.14; // don't need to instantiate class
     return Helpers;
 }());
-Helpers.PI = 3.14; // don't need to instantiate class
 console.log(2 * Helpers.PI);
 console.log(Helpers.calcCircumferenc(8));
 // abstract classes -> can't instantiate, must inherit from
