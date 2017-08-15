@@ -1,3 +1,7 @@
+/*
+    interfaces are only there for dev time, and don't get compiled. TS uses them to check the
+    types during dev, so it doesn't compile them to JS.
+*/
 ;
 //function greet_person(person: {name: string}) {
 function greet_person(person) {
